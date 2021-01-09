@@ -11,14 +11,22 @@ class Course
 {
 public:
     Course();
-    Course(string courseName, string id, string time, string teacher, string classRoom);
-    void addCourse(string courseName, string id, string time, string teacher, string classRoom);
+    Course(string courseName, string id, string time, string teacher, string classRoom, string week, string credits);
+    void addCourse(string courseName, string id, string time, string teacher, string classRoom, string week, string credits);
     void deleteCourse(string id);
     void printCourseList();
+    string getTime();
+    int getWeek();
+    int getCredits();
+    string getName();
+    string getTeacher();
+    string getClassroom();
 private:
     string courseName;
     string courseId;
     string time;
+    int week; //day of the week
+    int credits;
     string teacher;
     string classRoom;
     vector<Course> courseList;

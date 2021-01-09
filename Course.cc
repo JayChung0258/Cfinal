@@ -14,37 +14,41 @@ extern "C" {
 
 // 課程名稱, id, 時間, 老師, 上課地點
 string datas []= {
-    "程式設計", "A028", "三234", "王小明", "大仁樓201",
-    "線性代數", "B128", "二234", "李大人", "大仁樓211",
-    "數位系統", "C778", "二D515", "陳沈沈", "大仁樓331",
-    "科技人文",  "F822", "二D515", "陳李李", "大仁樓31",
+    "程式設計", "A028", "三234", "王小明", "大仁樓201","3","3",
+    "線性代數", "B128", "二234", "李大人", "大仁樓211","2","3",
+    "數位系統", "C778", "二D56", "陳沈沈", "大仁樓331","2","3",
+    "科技人文",  "F822", "二D56", "陳李李", "大仁樓331","2","3"
 };
 
 Course::Course()
 {
     for (int i = 0; i < 4; i++)
     {
-        string courseName = datas[i * 5];
-        string courseId = datas[(i * 5) + 1];
-        string time = datas[(i * 5) + 3];
-        string teacher = datas[(i * 5) + 2];
-        string classRoom = datas[(i * 5) + 4];
-        Course newCoure(courseName, courseId, time, teacher, classRoom);
+        string courseName = datas[i * 7];
+        string courseId = datas[(i * 7) + 1];
+        string time = datas[(i * 7) + 2];
+        string teacher = datas[(i * 7) + 3];
+        string classRoom = datas[(i * 7) + 4];
+        string week = datas[(i * 7) + 5];
+        string credit = datas[(i * 7) + 6];
+        Course newCoure(courseName, courseId, time, teacher, classRoom, week, credit);
         this->courseList.push_back(newCoure);
     }
 }
 
-Course::Course(string courseName, string id, string time, string teacher, string classRoom){
+Course::Course(string courseName, string id, string time, string teacher, string classRoom, string week, string credits){
     this->courseName = courseName;
     this->courseId = id;
     this->time = time;
     this->teacher = teacher;
     this->classRoom = classRoom;
+    this->week = stoi(week);
+    this->credits = stoi(credits);
 }
 
-void Course::addCourse(string courseName,string id, string time, string teacher, string classRoom)
+void Course::addCourse(string courseName,string id, string time, string teacher, string classRoom, string week, string credits)
 {
-    Course newCoure(courseName, id, time, teacher, classRoom);
+    Course newCoure(courseName, id, time, teacher, classRoom, week, credits);
     this->courseList.push_back(newCoure);
 }
 
@@ -67,4 +71,34 @@ void Course::printCourseList()
     for (int i = 0; i < courseLen; i++) {
         cout << (this->courseList[i].courseName) << setw(15) << (this->courseList[i].courseId) << setw(15) << (this->courseList[i].teacher) << setw(15) << (this->courseList[i].time) << setw(15) << (this->courseList[i].classRoom) << setw(15) << endl;
     }
+}
+
+string 
+Course::getTime(){
+  return this->time;
+}
+    
+string 
+Course::getName(){
+  return this->courseName;
+}
+    
+string 
+Course::getTeacher(){
+  return this->teacher;
+}
+    
+string 
+Course::getClassroom(){
+  return this->classRoom;
+}
+
+int 
+Course::getWeek(){
+  return this->week;
+}
+
+int 
+Course::getCredits(){
+  return this->credits;
 }

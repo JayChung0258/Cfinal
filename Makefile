@@ -1,6 +1,6 @@
 PACKAGE  = Test
 TARGET   = Test
-SOURCES  = Menu Admin Person Student Teacher Course
+SOURCES  = Menu Admin Person Student Teacher Course Schedule
 TEST     = Test
 
 O_DIR    = O_$(HOSTTYPE)

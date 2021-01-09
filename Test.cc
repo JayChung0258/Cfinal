@@ -6,6 +6,7 @@
 #include "Admin.h"
 #include "Person.h"
 #include "Course.h"
+#include "Schedule.h"
 
 using namespace std;
 
@@ -27,8 +28,11 @@ int main(int argc, char **argv)
     vector <Person*> person; 
     
     Course list;
-    list.addCourse("財務管理", "D328", "琳琳明", "三234", "商管院101");
+    list.addCourse("財務管理", "D328", "琳琳明", "三234", "商管院101","3","3");
     list.printCourseList();
+
+    Schedule schedule;
+    schedule.print(2021);
 
     while (1)
     {
