@@ -5,6 +5,7 @@
 #include <string>
 #include <iomanip>
 #include "Course.h"
+#include "Schedule.h"
 
 extern "C"
 {
@@ -115,15 +116,19 @@ void Course::changeCourse(string id)
 
 void Course::showAllCourse(string teacherName)
 {
-  cout << "課程名稱" << setw(20) << "課程ID" << setw(20) << "授課老師" << setw(15) << "上課時間" << setw(15) << "上課教室" << setw(15) << endl;
+  // cout << "課程名稱" << setw(20) << "課程ID" << setw(20) << "授課老師" << setw(15) << "上課時間" << setw(15) << "上課教室" << setw(15) << endl;
   int courseLen = this->courseList.size();
+  vector <Course> Courselist;
   for (int i = 0; i < courseLen; i++)
   {
     if (courseList[i].teacher == teacherName)
     {
-      cout << (this->courseList[i].courseName) << setw(15) << (this->courseList[i].courseId) << setw(15) << (this->courseList[i].teacher) << setw(15) << (this->courseList[i].time) << setw(15) << (this->courseList[i].classRoom) << setw(15) << endl;
+      Courselist.push_back(this->courseList[i]); 
+      // cout << (this->courseList[i].courseName) << setw(15) << (this->courseList[i].courseId) << setw(15) << (this->courseList[i].teacher) << setw(15) << (this->courseList[i].time) << setw(15) << (this->courseList[i].classRoom) << setw(15) << endl;
     }
   }
+  Schedule schedule(Courselist);
+  schedule.print();
 }
 
 void Course::printCourseList()

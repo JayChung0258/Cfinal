@@ -31,10 +31,10 @@ int main(int argc, char **argv)
     vector<Person *> person;
 
     Course list;
-    list.addCourse("財務管理", "D328", "三234", "琳琳明", "商管院101", "3", "3");
-    list.printCourseList();
+    // list.addCourse("財務管理", "D328", "三234", "琳琳明", "商管院101", "3", "3");
+    // list.printCourseList();
 
-    Schedule schedule;
+    // Schedule schedule;
     // schedule.print(2021);
 
     while (1)

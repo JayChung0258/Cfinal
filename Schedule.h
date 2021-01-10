@@ -9,8 +9,8 @@ class Schedule
 {
 public:
     Schedule();
-    Schedule(int belongs, int credits, vector<Course> course);
-    void print(int belongs);
+    Schedule(vector<Course> course);
+    void print();
 private:
     int belongs;
     vector<Course> courseList;
